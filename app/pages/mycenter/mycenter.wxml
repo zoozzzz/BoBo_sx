@@ -1,0 +1,22 @@
+<!--pages/mycenter/mycenter.wxml-->
+<view id='container'>
+  <!--头像区域  -->
+  <view class='icon'>
+    <image src="{{avatarUrl}}"></image>
+  </view>
+
+  <!--项目区  -->
+  <view class='item-box'>
+    <block wx:for='{{itemList}}'>
+      <view class='item'>
+        <view class='item-left'>
+          <image src='{{item.icon}}'></image>
+          <text>{{item.text}}</text>
+        </view>
+        <view class='item-right'>
+        <image src='./image/jiantou_tou.png'></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

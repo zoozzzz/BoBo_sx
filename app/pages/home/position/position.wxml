@@ -1,0 +1,80 @@
+<!--pages/position/position.wxml-->
+<view id="container">
+    <!--职位详情-->
+    <view class="position-detail-title">
+        <text>职位详情</text>
+    </view>
+
+    <!--内容-->
+    <view class="position-content">
+        <view>
+            <view class="main-info">
+                <text class="position-name">{{position.job_name}}</text>
+                <text class="position-salary">{{position.salary}}</text>
+                <text class="position-company">{{position.company_name}}</text>
+            </view>
+
+            <view class="short-info">
+                <ul>
+                    <li>
+                        <image src="./image/_01.png"></image>
+                        <text>{{position.update_time}}</text>
+                    </li>
+                    <li>
+                        <image src="./image/_02.png"></image>
+                        <text>招{{position.recruit_num}}人</text>
+                    </li>
+                    <li>
+                        <image src="./image/_03.png"></image>
+                        <text>{{position.education}}</text>
+                    </li>
+                    <li>
+                        <image src="./image/_04.png"></image>
+                        <text>{{position.room_board}}</text>
+                    </li>
+                    <li>
+                        <image src="./image/_05.png"></image>
+                        <text>{{position.conditions}}</text>
+                    </li>
+                </ul>
+            </view>
+            <view class="work-require">
+                <ul>
+                    <li>
+                        <text>工作地点</text>
+                        <text>广州 广金</text>
+                    </li>
+                    <li>
+                        <text>工作经验</text>
+                        <text>1年经验</text>
+                    </li>
+                    <li>
+                        <text>工作性质</text>
+                        <text>全职</text>
+                    </li>
+                </ul>
+            </view>
+        </view>
+
+        <!--岗位描述-->
+        <view class="position-line">
+            <text>岗位描述</text>
+        </view>
+        <view class="position-info">
+            <view>
+                <text class="position-info-title">岗位描述</text>
+                <text>
+                    dfsdfasdgasdgads
+                </text>
+            </view>
+
+            <view>
+                <text class="position-info-title">岗位要求</text>
+                <text>
+                    dfsdfasdgasdgads
+                </text>
+            </view>
+
+        </view>
+    </view>
+</view>

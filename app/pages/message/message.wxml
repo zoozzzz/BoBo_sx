@@ -1,0 +1,14 @@
+<!--pages/message/message.wxml-->
+<view id='contaienr'>
+<!--谁看过我  -->
+  <view class='item'>
+    <image src='image/_03.png'></image>
+    <text>谁看过我</text>
+  </view>
+
+  <!--系统消息  -->
+  <view class='item'>
+    <image src='image/_09.png'></image>
+    <text>系统消息</text>
+  </view>
+</view>

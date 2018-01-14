@@ -1,0 +1,22 @@
+<!--pages/deliver/deliver.wxml-->
+<view id='container'>
+<!--头部tab切换  -->
+  <nav class="deliver-nav">
+    <ul>
+      <li class="{{currentIndex == 0 ? 'active' :''}}" catchtap="switchSlider" data-index="0">投递成功</li>
+      <li class="{{currentIndex == 1 ? 'active' :''}}" catchtap="switchSlider" data-index="1">公司已查看</li>
+      <li class="{{currentIndex == 2 ? 'active' :''}}" catchtap="switchSlider" data-index="2">面试邀请</li>
+      <li class="{{currentIndex == 3 ? 'active' :''}}" catchtap="switchSlider" data-index="3">暂不合适</li>
+    </ul>
+  </nav>
+
+<!--tab切换对应标签页  -->
+  <view>
+    <ul>
+      <li wx:if="{{currentIndex == 0}}">投递成功</li>
+      <li wx:if="{{currentIndex == 1}}">公司已查看</li>
+      <li wx:if="{{currentIndex == 2}}">面试邀请</li>
+      <li wx:if="{{currentIndex == 3}}">暂不合适</li>
+    </ul>
+  </view>
+</view>

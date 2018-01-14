@@ -1,0 +1,34 @@
+/* pages/deliver/deliver.wxss */
+
+/*头部tab切换  */
+
+.deliver-nav {
+  width:100%;
+}
+
+.deliver-nav ul {
+  background-color: #efefef;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.deliver-nav li {
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding:20rpx 10rpx;
+  font-size: 32rpx;
+  border-right: 2rpx solid #666;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+.deliver-nav li:nth-last-child(1){
+  border-right: none;
+}
+
+.deliver-nav li.active {
+  color: red;
+  border-bottom: 2rpx solid red;
+}

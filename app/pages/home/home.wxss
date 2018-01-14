@@ -1,0 +1,98 @@
+/* pages/home/home.wxss */
+
+/*头部定位和搜索  */
+.nav{
+  width: 100%;
+  height: 60rpx;
+  background-color: #e58026;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 6rpx;
+  color: #fff;
+}
+
+.nav .img-location{
+  width: 160rpx;
+  height:40rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.nav image{
+  width: 40rpx;
+  height:40rpx;
+}
+.input-container{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+}
+.input-container image{
+  position: absolute;
+  top: 10rpx;
+  left: 20rpx;
+  z-index: 2;
+}
+.nav .search-input{
+  background-color: #df6f00;
+  border-radius: 20rpx;
+  padding-left: 70rpx;
+}
+
+
+/*轮播图  */
+.swiper{
+  width: 100%;
+}
+.swiper image{
+  width: 100%;
+}
+
+/*推荐职位  */
+.tuijian{
+  width: 100%;
+  /* height: 40rpx; */
+  padding: 10rpx;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+.tuijian view{
+  width: 35%;
+  border-bottom: 2rpx dashed #ccc;
+}
+
+/*职位列表  */
+.job-item{
+  padding: 20rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+.job-item .company-name{
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.job-item .job-item-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #666;
+  font-size: 32rpx;
+}
+.job-item .job-item-info .job-item-left{
+  
+}
+.job-item .job-item-info .job-item-right{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
+}
+.job-item .job-item-info .job-item-right .money{
+  color:red;
+}

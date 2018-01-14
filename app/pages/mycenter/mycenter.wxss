@@ -1,0 +1,40 @@
+/* pages/mycenter/mycenter.wxss */
+.icon{
+  width:100%;
+  height:400rpx;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon image{
+  width: 200rpx;
+  height:200rpx;
+  background-color: green;
+}
+.item{
+  width:100%;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #ccc;
+}
+.item .item-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.item .item-left image{
+  margin-right: 20rpx;
+}
+.item .item-right{
+  width:50rpx;
+  height:50rpx;
+  padding:0 20rpx;
+}
+.item image{
+  width:50rpx;
+  height:50rpx;
+}
