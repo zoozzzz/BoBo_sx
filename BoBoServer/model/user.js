@@ -4,11 +4,11 @@
 let DB = require("./db.js");
 let mongoose = require("mongoose");
 var UserSchema = mongoose.Schema({
-    userName:{type:String},
-    userSex:{type:String},
-    userAge:{type:Number}
+    username:String,
+    password:String
 });
 
-var UserModel = mongoose.model("User",UserSchema);
+//var UserModel = mongoose.model("User",UserSchema);
 
-module.exports = UserModel;
+//module.exports = UserModel;
+module.exports = UserSchema;

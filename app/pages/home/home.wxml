@@ -39,7 +39,7 @@
   <!--职位推荐列表  -->
   <view class='tuijian-list'>
     <block wx:for='{{jobList}}'>
-      <view bindtap="goListDetail" data-id="{{item.id}}" class='job-item'>
+      <view bindtap="goListDetail" data-detail="{{item.detail}}" class='job-item'>
 
         <view class="company-name">{{item.companyName}}</view>
         <view class='job-item-info'>

@@ -1,4 +1,5 @@
-
+const APP_ID = 'wx10133b063f1dbbe6';//输入小程序appid  
+const APP_SECRET = '4cab7bed0965b23bb621f915fee78cf4';//输入小程序app_secret 
 
 App({
   onLaunch: function () {
@@ -16,6 +17,7 @@ App({
   },
   getUserInfo:function(cb){
     var that = this;
+    //that.getOpenIdTap();
     if(this.globalData.userInfo){
       typeof cb == "function" && cb(this.globalData.userInfo)
     }else{
@@ -37,6 +39,31 @@ App({
       })
     }
   },
+  getOpenIdTap: function () {
+    var that = this;
+    wx.login({
+      success: function (res) {
+        wx.request({
+          //获取openid接口  
+          url: 'https://api.weixin.qq.com/sns/jscode2session',
+          data: {
+            appid: APP_ID,
+            secret: APP_SECRET,
+            js_code: res.code,
+            grant_type: 'authorization_code'
+          },
+          method: 'GET',
+          success: function (res) {
+            console.log(res.data);
+            that.globalData.openId = res.data.openid;//获取到的openid  
+            that.globalData.sessionKey = res.data.session_key;//获取到session_key  
+            console.log(that.globalData.openId.length);
+            console.log(that.globalData.sessionKey.length);
+          }
+        })
+      }
+    })
+  },
   globalData:{
     userInfo:null,
     logs:false,
@@ -45,7 +72,9 @@ App({
     encryptedData:null,
     iv:null,
     latitude:'',
-    longitude:''
+    longitude:'',
+    openId:'',
+    sessionKey:''
   },
   data:{
     searchId:'111'

@@ -1,6 +1,7 @@
 ##ignore this file##
+/.idea/
 /node_modules/
-
+/BoBoServer/node_modules/
 .classpath
 .project
 .settings     

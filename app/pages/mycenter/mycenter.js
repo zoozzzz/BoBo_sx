@@ -31,11 +31,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        //let avatarUrl = app.globalData.json();
-        //console.log("头像"+avatarUrl);
-        //this.setData({
-        //    avatarUrl:avatarUrl
-        //})
+      var that = this;
+        app.getUserInfo(function (res) {
+            console.log(res);
+            that.setData({
+                avatarUrl:res.avatarUrl,
+                nickName:res.nickName
+            });
+        });
+        // app.getOpenIdTap();
     },
 
     /**

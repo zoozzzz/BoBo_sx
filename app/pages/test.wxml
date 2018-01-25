@@ -1,0 +1,2 @@
+<!--pages/test.wxml-->
+<text bindtap='getOpenIdTap'>pages/test.wxml</text>

@@ -9,32 +9,32 @@
     <view class="position-content">
         <view>
             <view class="main-info">
-                <text class="position-name">{{position.job_name}}</text>
-                <text class="position-salary">{{position.salary}}</text>
-                <text class="position-company">{{position.company_name}}</text>
+                <text class="position-name">{{detail.job_name}}</text>
+                <text class="position-salary">{{detail.salary}}</text>
+                <text class="position-company">{{detail.company_name}}</text>
             </view>
 
             <view class="short-info">
                 <ul>
                     <li>
                         <image src="./image/_01.png"></image>
-                        <text>{{position.update_time}}</text>
+                        <text>{{detail.update_time}}</text>
                     </li>
                     <li>
                         <image src="./image/_02.png"></image>
-                        <text>招{{position.recruit_num}}人</text>
+                        <text>招{{detail.recruit_num}}人</text>
                     </li>
                     <li>
                         <image src="./image/_03.png"></image>
-                        <text>{{position.education}}</text>
+                        <text>{{detail.education}}</text>
                     </li>
                     <li>
                         <image src="./image/_04.png"></image>
-                        <text>{{position.room_board}}</text>
+                        <text>{{detail.room_board}}</text>
                     </li>
                     <li>
                         <image src="./image/_05.png"></image>
-                        <text>{{position.conditions}}</text>
+                        <text>{{detail.conditions}}</text>
                     </li>
                 </ul>
             </view>
@@ -42,15 +42,15 @@
                 <ul>
                     <li>
                         <text>工作地点</text>
-                        <text>广州 广金</text>
+                        <text>{{detail.work_place}}</text>
                     </li>
                     <li>
                         <text>工作经验</text>
-                        <text>1年经验</text>
+                        <text>{{detail.work_experience}}</text>
                     </li>
                     <li>
                         <text>工作性质</text>
-                        <text>全职</text>
+                        <text>{{detail.full_time}}</text>
                     </li>
                 </ul>
             </view>
@@ -64,17 +64,23 @@
             <view>
                 <text class="position-info-title">岗位描述</text>
                 <text>
-                    dfsdfasdgasdgads
+                    {{detail.description}}
                 </text>
             </view>
 
             <view>
                 <text class="position-info-title">岗位要求</text>
                 <text>
-                    dfsdfasdgasdgads
+                    {{detail.requirement}}
                 </text>
+
             </view>
 
         </view>
+    </view>
+
+    <!--投递按钮-->
+    <view class="submit-button">
+        <button bindtap="deliver">投递</button>
     </view>
 </view>

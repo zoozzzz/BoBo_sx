@@ -2,19 +2,38 @@
  * Created by Cai on 2018/1/7.
  */
 
-let DB = require("./db.js");
+let db = require("./db.js");
 let mongoose = require("mongoose");
 
+var JobDetailSchema = mongoose.Schema({
+    position:String,
+    salary:String,
+    company_name:String,
+    update_time:String,
+    recruit_num:Number,
+    education:String,
+    room_board:String,
+    conditions:String,
+    work_place:String,
+    work_experience:String,
+    full_time:String,
+    description:String,
+    requirement:String
+});
+
 var JobSchema = mongoose.Schema({
-    id: Number,
     companyName: String,
     position: String,
-    updateTime: Date,
+    updateTime: String,
     salary: Number,
-    workPlace: String
+    workPlace: String,
+    detail:JobDetailSchema
 });
 
 
 
-module.exports = JobSchema;
+module.exports = {
+    JobSchema,
+    JobDetailSchema
+};
 

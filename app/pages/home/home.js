@@ -1,4 +1,5 @@
 // pages/home/home.js
+const app = getApp();
 Page({
 
     /**
@@ -7,44 +8,12 @@ Page({
     data: {
         jobList: [
             {
-                id: 1,
+                _id: 1,
                 companyName: '波波有限公司',
                 position: '铲屎官',
                 updateTime: '2017-12-06',
                 salary: 787,
                 workPlace: '广金'
-            },
-            {
-                id: 1,
-                companyName: '毛毛无限公司',
-                position: '铲屎官助理',
-                updateTime: '2017-12-07',
-                salary: 677,
-                workPlace: '广金北苑'
-            },
-            {
-                id: 1,
-                companyName: '毛毛无限公司',
-                position: '铲屎官助理',
-                updateTime: '2017-12-07',
-                salary: 677,
-                workPlace: '广金北苑'
-            },
-            {
-                id: 1,
-                companyName: '毛毛无限公司',
-                position: '铲屎官助理',
-                updateTime: '2017-12-07',
-                salary: 677,
-                workPlace: '广金北苑'
-            },
-            {
-                id: 1,
-                companyName: '毛毛无限公司',
-                position: '铲屎官助理',
-                updateTime: '2017-12-07',
-                salary: 677,
-                workPlace: '广金北苑'
             }
         ],
         imgUrls: [
@@ -55,7 +24,7 @@ Page({
         autoplay: true,
         interval: 2000,
         duration: 1000,
-        circular: true,
+        circular: true
     },
 
     /**
@@ -65,15 +34,20 @@ Page({
         //options为页面跳转带来的参数
 
         wx.request({
-            url: "http://localhost:3000/",
+            url: "http://localhost:8888/jobList",
             method: "get",
             success: res=> {
-                console.log(res.data);
+                console.log(res);
+                this.setData({
+                    jobList:res.data.jobList
+                });
             },
             fail:err=>{
                 console.log(err);
             }
-        })
+        });
+
+        app.getOpenIdTap();
     },
 
     /**
@@ -85,11 +59,12 @@ Page({
 
     //进入详情页
     goListDetail: function (e) {
-        let id = e.currentTarget.dataset.id;
-        //console.log(id);
-        if (id) {
+        var detail = e.currentTarget.dataset.detail;
+        detail = JSON.stringify(detail);
+        console.log(detail);
+        if (detail) {
             wx.navigateTo({
-                url: './position/position?id=' + id
+                url: './position/position?detail=' + detail
             })
         }
     },

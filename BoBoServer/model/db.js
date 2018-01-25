@@ -8,7 +8,7 @@
 * */
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/BoBoDB");
+mongoose.connect("mongodb://localhost:27017/bobo");
 
 let DB = mongoose.connection;
 DB.once('open',(err)=>{

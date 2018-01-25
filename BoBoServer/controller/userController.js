@@ -1,21 +1,24 @@
 /**
  * Created by Cai on 2018/1/7.
  */
-let UserModel = require("../model/user.js");
+//let UserModel = require("../model/user.js");
+let UserSchema = require("../model/user.js");
+var mongoose = require("mongoose");
 
-function insertUser(){
+let UserModel = mongoose.model('user',UserSchema);
+
+function insertUser(username,password){
     var user = new UserModel({
-        userName:"波波",
-        userSex:"公",
-        userAge:1
+        username:username,
+        password:password
     });
 
-    user.save((err,res)=>{
+    user.save(function (err) {
         if(err){
-            throw err;
+            console.log(err);
             return;
         }
-        console.log(res);
+        console.log('注册成功');
     })
 }
-insertUser();
+insertUser('admin','admin');

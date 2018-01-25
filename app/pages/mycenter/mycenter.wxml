@@ -3,6 +3,7 @@
   <!--头像区域  -->
   <view class='icon'>
     <image src="{{avatarUrl}}"></image>
+    <text>{{nickName}}</text>
   </view>
 
   <!--项目区  -->

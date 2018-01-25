@@ -5,7 +5,8 @@
     "pages/mycenter/mycenter",
     "pages/index/index",
     "pages/deliver/deliver",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
