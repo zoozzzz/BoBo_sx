@@ -1,22 +1,167 @@
 <!--pages/deliver/deliver.wxml-->
 <view id='container'>
-<!--头部tab切换  -->
-  <nav class="deliver-nav">
-    <ul>
-      <li class="{{currentIndex == 0 ? 'active' :''}}" catchtap="switchSlider" data-index="0">投递成功</li>
-      <li class="{{currentIndex == 1 ? 'active' :''}}" catchtap="switchSlider" data-index="1">公司已查看</li>
-      <li class="{{currentIndex == 2 ? 'active' :''}}" catchtap="switchSlider" data-index="2">面试邀请</li>
-      <li class="{{currentIndex == 3 ? 'active' :''}}" catchtap="switchSlider" data-index="3">暂不合适</li>
-    </ul>
-  </nav>
+  <view wx:if="{{isCompany}}">
+    <!--头部tab切换  -->
+    <nav class="deliver-nav">
+      <ul>
+        <li class="{{currentIndex == 0 ? 'active' :''}}" catchtap="switchSlider" data-index="0">
+          <text>收到的简历</text>
+        </li>
+        <li class="{{currentIndex == 1 ? 'active' :''}}" catchtap="switchSlider" data-index="1">
+          <text>已查看</text>
+        </li>
+      </ul>
+    </nav>
 
-<!--tab切换对应标签页  -->
-  <view>
-    <ul>
-      <li wx:if="{{currentIndex == 0}}">投递成功</li>
-      <li wx:if="{{currentIndex == 1}}">公司已查看</li>
-      <li wx:if="{{currentIndex == 2}}">面试邀请</li>
-      <li wx:if="{{currentIndex == 3}}">暂不合适</li>
-    </ul>
+    <!--tab切换对应标签页  -->
+    <view>
+      <ul>
+        <li wx:if="{{currentIndex == 0}}">
+          <view class='tuijian-list'>
+            <block wx:for='{{receivedList}}' wx:key>
+              <view bindtap="toReceivedList" data-id="{{item._id}}" class='job-item'>
+
+                <view class="company-name">{{item.companyName}}</view>
+                <view class='job-item-info'>
+                  <view class="job-item-left">
+                    <view class="position">{{item.position}}</view>
+                    <view class="time">{{item.updateTime}}</view>
+                  </view>
+                  <view class="job-item-right">
+                    <view class="money">{{item.salary}}</view>
+                    <view class='work-place'>{{item.workPlace}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </li>
+        <li wx:if="{{currentIndex == 1}}">
+          <view class='tuijian-list'>
+            <block wx:for='{{checkedList}}' wx:key>
+              <view data-detail="{{item.detail}}" class='job-item'>
+
+                <view class="company-name">{{item.companyName}}</view>
+                <view class='job-item-info'>
+                  <view class="job-item-left">
+                    <view class="position">{{item.position}}</view>
+                    <view class="time">{{item.updateTime}}</view>
+                  </view>
+                  <view class="job-item-right">
+                    <view class="money">{{item.salary}}</view>
+                    <view class='work-place'>{{item.workPlace}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </li>
+      </ul>
+    </view>
   </view>
+
+  <view wx:if="{{!isCompany}}">
+    <!--头部tab切换  -->
+    <nav class="deliver-nav">
+      <ul>
+        <li class="{{currentIndex == 0 ? 'active' :''}}" catchtap="switchSlider" data-index="0">投递成功</li>
+        <li class="{{currentIndex == 1 ? 'active' :''}}" catchtap="switchSlider" data-index="1">公司已查看</li>
+        <li class="{{currentIndex == 2 ? 'active' :''}}" catchtap="switchSlider" data-index="2">面试邀请</li>
+        <li class="{{currentIndex == 3 ? 'active' :''}}" catchtap="switchSlider" data-index="3">暂不合适</li>
+      </ul>
+    </nav>
+
+    <!--tab切换对应标签页  -->
+    <view>
+      <ul>
+        <li wx:if="{{currentIndex == 0}}">
+          <view class='tuijian-list'>
+            <block wx:for='{{deliveredList}}' wx:key>
+              <view bindtap="goListDetail" data-detail="{{item.detail}}" class='job-item'>
+
+                <view class="company-name">{{item.companyName}}</view>
+                <view class='job-item-info'>
+                  <view class="job-item-left">
+                    <view class="position">{{item.position}}</view>
+                    <view class="time">{{item.updateTime}}</view>
+                  </view>
+                  <view class="job-item-right">
+                    <view class="money">{{item.salary}}</view>
+                    <view class='work-place'>{{item.workPlace}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </li>
+        <li wx:if="{{currentIndex == 1}}">
+          <view class='tuijian-list'>
+            <block wx:for='{{checkedList}}' wx:key>
+              <view bindtap="goListDetail" data-detail="{{item.detail}}" class='job-item'>
+
+                <view class="company-name">{{item.companyName}}</view>
+                <view class='job-item-info'>
+                  <view class="job-item-left">
+                    <view class="position">{{item.position}}</view>
+                    <view class="time">{{item.updateTime}}</view>
+                  </view>
+                  <view class="job-item-right">
+                    <view class="money">{{item.salary}}</view>
+                    <view class='work-place'>{{item.workPlace}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </li>
+        <li wx:if="{{currentIndex == 2}}">
+          <view class='tuijian-list'>
+            <block wx:for='{{invitedList}}' wx:key>
+              <view bindtap="goListDetail" data-detail="{{item.detail}}" class='job-item'>
+
+                <view class="company-name">{{item.companyName}}</view>
+                <view class='job-item-info'>
+                  <view class="job-item-left">
+                    <view class="position">{{item.position}}</view>
+                    <view class="time">{{item.updateTime}}</view>
+                  </view>
+                  <view class="job-item-right">
+                    <view class="money">{{item.salary}}</view>
+                    <view class='work-place'>{{item.workPlace}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </li>
+        <li wx:if="{{currentIndex == 3}}">
+          <view class='tuijian-list'>
+            <block wx:for='{{rejectedList}}' wx:key>
+              <view bindtap="goListDetail" data-detail="{{item.detail}}" class='job-item'>
+
+                <view class="company-name">{{item.companyName}}</view>
+                <view class='job-item-info'>
+                  <view class="job-item-left">
+                    <view class="position">{{item.position}}</view>
+                    <view class="time">{{item.updateTime}}</view>
+                  </view>
+                  <view class="job-item-right">
+                    <view class="money">{{item.salary}}</view>
+                    <view class='work-place'>{{item.workPlace}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </li>
+      </ul>
+    </view>
+  </view>
+
 </view>

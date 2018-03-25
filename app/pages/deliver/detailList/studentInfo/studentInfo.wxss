@@ -1,0 +1,29 @@
+/* pages/deliver/detailList/studentInfo/studentInfo.wxss */
+
+#container{
+    width: 100%;
+}
+#container .resume-wrap{
+    width: 100%;
+    box-sizing: border-box;
+}
+#container .resume-wrap>text{
+    display: block;
+    line-height: 80rpx;
+    border: 1px solid #ef8d2c;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+}
+#container .btn-group{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+#container .btn-group button{
+    width: 30%;
+    background-color: #ef8d2c;
+    height: 90rpx;
+}

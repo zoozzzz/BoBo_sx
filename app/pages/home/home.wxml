@@ -6,21 +6,21 @@
 
     <!-- 定位 -->
     <view class='img-location'>
-      <image src='../../image/action.png'></image>
-      <text>定位</text>
+      <!--<image src='../../image/action.png'></image>
+      <text>定位</text>-->
     </view>
 
     <!--搜索框  -->
     <view class='input-container'>
       <image src='../../image/search.png'></image>
-      <input class='search-input' placeholder='请输入职位名或公司名' placeholder-style='color:#fff;font-size:28rpx'></input>
+      <input class='search-input' placeholder='请输入职位名或公司名' placeholder-style='color:#fff;font-size:14px' bindinput="searchJob"></input>
     </view>
   </view>
 
   <!--轮播图 -->
   <view class='swiper'>
     <swiper autoplay='{{autoplay}}' interval='{{interval}}' indicator-dots='{{indicatorDots}}' circular='{{circular}}'>
-      <block wx:for='{{imgUrls}}'>
+      <block wx:for='{{imgUrls}}' wx:key>
         <swiper-item>
           <image src='{{item}}' mode='widthFix'></image>
         </swiper-item>
@@ -28,23 +28,44 @@
     </swiper>
   </view>
 
-  <!--职位推荐  -->
-  <!--职位推荐文字  -->
+  <!--列表文字-->
   <view class='tuijian'>
     <view></view>
-    <text>推荐职位</text>
+    <text wx:if="{{!isCompany}}">实习列表</text>
+    <text wx:else>求职列表</text>
     <view></view>
   </view>
 
-  <!--职位推荐列表  -->
-  <view class='tuijian-list'>
-    <block wx:for='{{jobList}}'>
-      <view bindtap="goListDetail" data-detail="{{item.detail}}" class='job-item'>
+  <!--求职列表-->
+  <view class='tuijian-list' wx:if="{{isCompany}}">
+    <block wx:for='{{applyList}}' wx:key>
+      <view data-detail="{{item}}" class='job-item'>
 
-        <view class="company-name">{{item.companyName}}</view>
+        <view class="company-name">{{item.position}}</view>
         <view class='job-item-info'>
           <view class="job-item-left">
-            <view class="position">{{item.position}}</view>
+            <view class="position"></view>
+            <view class="time">{{item.updateTime}}</view>
+          </view>
+          <view class="job-item-right">
+            <view class="money">{{item.salary}}</view>
+            <view class='work-place'>{{item.workPlace}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+  </view>
+
+  <!--实习列表  -->
+  <view class='tuijian-list' wx:if="{{!isCompany}}">
+    <block wx:for='{{renderJobList}}' wx:key>
+      <view bindtap="goListDetail" data-detail="{{item}}" class='job-item'>
+
+        <view class="company-name">{{item.position}}</view>
+        <view class='job-item-info'>
+          <view class="job-item-left">
+            <view class="position">{{item.companyName}}</view>
             <view class="time">{{item.updateTime}}</view>
           </view>
           <view class="job-item-right">

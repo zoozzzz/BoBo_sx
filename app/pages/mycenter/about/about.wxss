@@ -1,0 +1,14 @@
+/* pages/mycenter/about/about.wxss */
+page{
+    height: 100%;
+}
+#container{
+    background-color: #e58026;
+    height: 100%;
+}
+text{
+    line-height: 60rpx;
+    display: block;
+    width: 100%;
+    text-align: center;
+}

@@ -1,9 +1,9 @@
 /**
  * Created by Cai on 2018/1/7.
  */
-let JobSchema = require("../model/job.js").JobSchema;
-let mongoose = require("mongoose");
-let db = require('../model/db.js');
+const JobSchema = require("../model/job.js").JobSchema;
+const mongoose = require("mongoose");
+const db = require('../model/db.js');
 
 
 var JobModel = mongoose.model('jobList', JobSchema, 'jobList');
@@ -14,25 +14,24 @@ function findAllJob(cb) {
         if (err) {
             console.log(err);
         }
-        //console.log(res);
         cb(res);
-        //db.close();
     });
 }
 //findAllJob();
 
 //通过id查询某个实习
-function findById(id) {
-    JobModel.find({_id: id}, function (err, res) {
+function findOne(id,cb) {
+    JobModel.findById(id, function (err, res) {
         if (err) {
             console.log(err);
             return;
         }
-        //console.log(res);
-        return res[0];
+        cb(res);
     });
 }
-//findById('5a621166ac72efe014aa05af');
+/*findOne('5a689b7d129a502dc43a2ffd',function(res){
+    console.log(res);
+});*/
 
 //通过公司名字查询
 function findByName(companyName) {
@@ -96,16 +95,16 @@ function insertOne(obj) {
                     return;
                 }
                 console.log("已保存!");
-                db.close();
+                //db.close();
             });
         }
     });
 }
 /*insertOne({
-    companyName: '咿咿有效公司',
-    position: '铲屎官',
-    salary: 666666,
-    workPlace: '波波家',
+    companyName: '哈哈有效公司',
+    position: '波波专员',
+    salary: 888,
+    workPlace: '毛毛家',
     detail: {
         recruit_num: 999,
         education: '本科',
@@ -113,8 +112,8 @@ function insertOne(obj) {
         conditions: '26-24',
         work_experience: '5 年',
         full_time: '兼职',
-        description: '主要负责铲屎和铲尿',
-        requirement: '研究生以上'
+        description: '主要负责看笼子',
+        requirement: '本科以上'
     }
 });*/
 
@@ -144,10 +143,15 @@ function removeOneById(id) {
 }
 //removeOneById('5a643b36b13aa63ec0fc512e');
 
+//获取学生投递的实习
+function getDeliveredList(jobId,status){
+
+}
+
 
 module.exports = {
     findAllJob: findAllJob,
-    findOne: findById,
+    findOne: findOne,
     insertOne: insertOne,
     findByName: findByName,
     removeOneById: removeOneById,

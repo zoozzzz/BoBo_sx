@@ -1,0 +1,8 @@
+<!--pages/mycenter/about/about.wxml-->
+<view id='container'>
+  <text>声明</text>
+  <text>本小程序为作者个人编写</text>
+  <text>如有雷同，实为抄袭本人作品</text>
+  <text>最终解析权全归波波所有</text>
+  <text>作者：蔡荣志</text>
+</view>

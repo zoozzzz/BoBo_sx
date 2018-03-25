@@ -1,0 +1,22 @@
+/* pages/deliver/detailList/detailList.wxss */
+page{
+    width: 100%;
+}
+#container{
+    width: 100%;
+    padding: 20rpx;
+}
+.resume-list{
+    width: 100%;
+    height: 200rpx;
+    border-bottom: 1px solid #e58026;
+    box-sizing: border-box;
+}
+.resume-list .row{
+    width: 80%;
+    display: flex;
+    justify-content:space-between;
+}
+.resume-list text{
+    display: block;
+}

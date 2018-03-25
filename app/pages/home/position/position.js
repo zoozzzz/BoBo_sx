@@ -30,17 +30,42 @@ Page({
   },
 
   deliver: function () {
+
     var openid = app.globalData.openId;
     var jobid = this.data.detail._id;
-    console.log('openid:'+openid);
-    console.log('jobid:'+jobid);
+    // wx.showToast({
+    //   title: '已投递'
+    // });
+    console.log(jobid);
     wx.request({
       //提交openid和jobid
-        url:"http://localhost:8888/deliver?jobid="+jobid+'&openid='+openid,
+        url:"http://localhost:8888/deliver",
+        data:{
+          jobid:jobid,
+          openid:openid,
+          status:0
+        },
         success:res=>{
           console.log(res);
+          if(res.data.res == 'no resume'){
+            wx.showToast({
+              title: '没有简历'
+            });
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '../../mycenter/myinfo/myinfo'
+              })
+            },1000);
+          }else{
+            wx.showToast({
+              title: '投递成功'
+            });
+          }
+        },
+        fail:err=>{
+          // console.log(err);
           wx.showToast({
-            title: '已投递'
+            title: '投递失败'
           });
         }
     });

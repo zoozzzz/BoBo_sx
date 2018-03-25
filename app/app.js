@@ -3,8 +3,12 @@ const APP_SECRET = '4cab7bed0965b23bb621f915fee78cf4';//输入小程序app_secre
 
 App({
   onLaunch: function () {
-    // 调用API获取用户地址;
     let that = this;
+    this.getOpenIdTap();
+    this.getUserInfo(function (userInfo) {
+
+    });
+    // 调用API获取用户地址;
     wx.getLocation({
         type: 'wgs84',
         success: function(res) {
@@ -17,7 +21,6 @@ App({
   },
   getUserInfo:function(cb){
     var that = this;
-    //that.getOpenIdTap();
     if(this.globalData.userInfo){
       typeof cb == "function" && cb(this.globalData.userInfo)
     }else{
@@ -56,9 +59,10 @@ App({
           success: function (res) {
             console.log(res.data);
             that.globalData.openId = res.data.openid;//获取到的openid  
-            that.globalData.sessionKey = res.data.session_key;//获取到session_key  
-            console.log(that.globalData.openId.length);
-            console.log(that.globalData.sessionKey.length);
+            that.globalData.sessionKey = res.data.session_key;//获取到session_key
+          },
+          fail: function (err) {
+            console.log(err);
           }
         })
       }
@@ -74,7 +78,8 @@ App({
     latitude:'',
     longitude:'',
     openId:'',
-    sessionKey:''
+    sessionKey:'',
+    isCompany:false
   },
   data:{
     searchId:'111'

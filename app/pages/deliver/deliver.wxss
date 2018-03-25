@@ -32,3 +32,32 @@
   color: red;
   border-bottom: 2rpx solid red;
 }
+
+/*职位列表  */
+.job-item{
+  padding: 20rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+.job-item .company-name{
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.job-item .job-item-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #666;
+  font-size: 32rpx;
+}
+.job-item .job-item-info .job-item-left{
+
+}
+.job-item .job-item-info .job-item-right{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
+}
+.job-item .job-item-info .job-item-right .money{
+  color:red;
+}

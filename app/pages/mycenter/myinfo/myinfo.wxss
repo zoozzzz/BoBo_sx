@@ -1,0 +1,32 @@
+/* pages/mycenter/myinfo.wxss */
+#container{
+    padding: 10rpx;
+}
+.item-info{
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.left {
+    padding: 20rpx;
+}
+.right{
+
+}
+.input-item{
+    width: 100%;
+    height: 100rpx;
+    border: 1px solid #e58026;
+    padding: 4rpx;
+    border-radius: 10rpx;
+}
+.publish-btn{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #e58026;
+    color: #fff;
+    z-index: 999;
+}

@@ -1,0 +1,17 @@
+<!--pages/deliver/detailList/detailList.wxml-->
+<view id="container">
+    <block wx:for="{{resumeList}}" wx:key>
+        <view class="resume-list" bindtap="toStudentInfo" data-resume="{{item.resume}}">
+            <view class="row">
+                <text>姓名：{{item.resume.name}}</text>
+                <text>性别：{{item.resume.sex}}</text>
+            </view>
+            <view class="row">
+                <text>院校：{{item.resume.college}}</text>
+                <text>学历：{{item.resume.education}}</text>
+            </view>
+            <text>主修：{{item.resume.major}}</text>
+        </view>
+    </block>
+
+</view>

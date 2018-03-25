@@ -1,0 +1,24 @@
+<!--pages/mycenter/myinfo.wxml-->
+<view id='container'>
+    <view wx:if="{{isResume}}">
+        <block wx:for="{{resume}}" wx:key>
+            <view class="item-info">
+                <text class="left">{{index}}</text>
+                <text class="right">{{item}}</text>
+            </view>
+        </block>
+        <button class="publish-btn" bindtap="updateInfo">修改</button>
+    </view>
+
+    <form action="" bindsubmit="studentInfoSubmit">
+        <view wx:if="{{!isResume}}">
+            <block wx:for="{{items}}" wx:key>
+                <view class="item-info">
+                    <input class="input-item" placeholder="{{item.text}}" name="{{item.name}}"/>
+                </view>
+            </block>
+            <button class="publish-btn" formType="submit">创建</button>
+        </view>
+    </form>
+
+</view>

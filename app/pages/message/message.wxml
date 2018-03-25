@@ -1,14 +1,26 @@
 <!--pages/message/message.wxml-->
 <view id='contaienr'>
-<!--谁看过我  -->
-  <view class='item'>
-    <image src='image/_03.png'></image>
-    <text>谁看过我</text>
+  <view wx:if="{{isCompany}}">
+    <form bindsubmit="CompanyFromSubmit">
+      <view class="input-container">
+        <input type="text" name='companyName' placeholder="企业名称" value='{{companyName}}'/>
+        <input type="text" name='position' placeholder="实习岗位" value='{{position}}'/>
+        <input type="number" name='salary' placeholder="薪资报酬" value='{{salary}}'/>
+        <input type="text" name='workPlace' placeholder="工作地点" value='{{workPlace}}'/>
+        <input type="number" name='recruit_num' placeholder="招聘人数" value='{{recruit_num}}'/>
+        <input type="text" name='education' placeholder="学历要求" value='{{education}}'/>
+        <input type="text" name='room_board' placeholder="是否包食宿" value='{{room_board}}'/>
+        <input type="text" name='conditions' placeholder="年龄要求" value='{{conditions}}'/>
+        <input type="text" name='work_experience' placeholder="经验要求" value='{{work_experience}}'/>
+        <textarea name="description" cols="30" rows="10" placeholder="工作描述" value='{{description}}'></textarea>
+        <textarea name="requirement" cols="30" rows="10" placeholder="工作要求" value='{{requirement}}'></textarea>
+      </view>
+      <button class="publish-btn" formType="submit">发布</button>
+    </form>
   </view>
 
-  <!--系统消息  -->
-  <view class='item'>
-    <image src='image/_09.png'></image>
-    <text>系统消息</text>
+  <view wx:if="{{!isCompany}}">
+    <text>学生用户</text>
   </view>
+
 </view>

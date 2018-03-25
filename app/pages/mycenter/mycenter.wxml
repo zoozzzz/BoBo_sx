@@ -8,8 +8,8 @@
 
   <!--项目区  -->
   <view class='item-box'>
-    <block wx:for='{{itemList}}'>
-      <view class='item'>
+    <block wx:for='{{itemList}}' wx:key>
+      <view class='item' bindtap="toDetail" data-type="{{item.text}}">
         <view class='item-left'>
           <image src='{{item.icon}}'></image>
           <text>{{item.text}}</text>

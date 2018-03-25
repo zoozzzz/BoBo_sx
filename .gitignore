@@ -2,6 +2,7 @@
 /.idea/
 /node_modules/
 /BoBoServer/node_modules/
+/BoBoServer/BoBoDB/
 .classpath
 .project
 .settings     

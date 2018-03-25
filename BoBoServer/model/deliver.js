@@ -4,3 +4,10 @@
 let db = require("./db.js");
 let mongoose = require("mongoose");
 
+
+var deliveredSchema = mongoose.Schema({
+    userOpenId : String,
+    deliveredJobList : String
+});
+
+module.export =  deliveredSchema;

@@ -1,12 +1,16 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/mycenter/myinfo/myinfo",
     "pages/home/position/position",
+    "pages/message/message",
     "pages/mycenter/mycenter",
     "pages/index/index",
     "pages/deliver/deliver",
-    "pages/message/message",
-    "pages/test"
+    "pages/test",
+    "pages/mycenter/about/about",
+    "pages/deliver/detailList/detailList",
+    "pages/deliver/detailList/studentInfo/studentInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,7 +40,7 @@
         "pagePath": "pages/message/message",
         "iconPath": "image/0103_01.png",
         "selectedIconPath": "image/0103_02.png",
-        "text": "消息"
+        "text": "发布"
       },
       {
         "pagePath": "pages/mycenter/mycenter",
@@ -45,5 +49,8 @@
         "text": "我的"
       }
     ]
+  },
+  "networkTimeout": {
+    "request": 10000
   }
 }

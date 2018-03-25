@@ -9,28 +9,37 @@ Page({
         itemList: [
             {
                 icon: './image/dingyue_03.png',
-                text: '绑定已有帐号'
+                text: '个人信息'
             },
-            {
-                icon: './image/shouchang_04.png',
-                text: '职位收藏'
-            },
-            {
-                icon: './image/yijina_09.png',
-                text: '意见反馈'
-            },
+
             {
                 icon: './image/more_10.png',
                 text: '关于我们'
             }
         ],
-        avatarUrl:''
+        avatarUrl:'',
+        type:''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        if(app.globalData.isCompany == true){
+            this.setData({
+                itemList: [
+                    {
+                        icon: './image/dingyue_03.png',
+                        text: '企业信息'
+                    },
+
+                    {
+                        icon: './image/more_10.png',
+                        text: '关于我们'
+                    }
+                ]
+            });
+        }
       var that = this;
         app.getUserInfo(function (res) {
             console.log(res);
@@ -40,6 +49,31 @@ Page({
             });
         });
         // app.getOpenIdTap();
+    },
+
+    getType: function () {
+
+    },
+
+    toDetail: function (e) {
+        let type = e.currentTarget.dataset.type;
+        switch (type){
+            case '个人信息':
+                wx.navigateTo({
+                  url: './myinfo/myinfo?type=studentInfo'
+                });
+                break;
+            case '企业信息':
+                wx.navigateTo({
+                    url: './myinfo/myinfo?type=companyInfo'
+                });
+                break;
+            default:
+                wx.navigateTo({
+                    url: './about/about'
+                });
+                break;
+        }
     },
 
     /**

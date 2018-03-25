@@ -1,0 +1,26 @@
+<!--pages/deliver/detailList/studentInfo/studentInfo.wxml-->
+<view id="container">
+    <view wx:if="{{resume}}" class="resume-wrap">
+        <text>姓名：{{resume.name}}</text>
+        <text>性别：{{resume.sex}}</text>
+        <text>年龄：{{resume.age}}</text>
+        <text>邮箱：{{resume.mail}}</text>
+        <text>电话：{{resume.telephone}}</text>
+        <text>出生日期：{{resume.born}}</text>
+        <text>学历：{{resume.education}}</text>
+        <text>毕业院校：{{resume.college}}</text>
+        <text>居住地：{{resume.home}}</text>
+        <text>主修：{{resume.major}}</text>
+        <text>个人简介：{{resume.introduction}}</text>
+        <text>个人技能：{{resume.skill}}</text>
+        <text>项目经验：{{resume.project_experience}}</text>
+        <text>获得证书：{{resume.certificate}}</text>
+        <text>兴趣爱好：{{resume.hobbies}}</text>
+    </view>
+
+    <view class="btn-group">
+        <button bindtap="check">标记已查看</button>
+        <button bindtap="invite">邀请面试</button>
+        <button bindtap="reject">拒绝</button>
+    </view>
+</view>

@@ -1,4 +1,7 @@
-<!--pages/position/position.wxml-->
+
+
+
+ <!--pages/position/position.wxml-->
 <view id="container">
     <!--职位详情-->
     <view class="position-detail-title">
